@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'gag/style.css' %}" />
+{% if post %}
+    <h1>post: {{ post.post_text }}</h1>
+    <p>user: {{ post.author }}</p>
+    <p>deleted: {{ post.deleted }}</p>
+    <p>likes: {{ post.likes }}</p>
+    <p>date: {{ post.pub_date }}</p>
+
+{% endif %}

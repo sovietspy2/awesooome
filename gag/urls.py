@@ -5,5 +5,5 @@ app_name = 'gag'
 
 urlpatterns = [
     path('',views.index, name='index'),
-    path('posts/<int:pk>', views.detailsView.as_view(), name='details'),
+    path('posts/<int:pk>/', views.DetailsView.as_view(), name='details'),
 ]

@@ -11,6 +11,7 @@ def index(request):
     return render(request, 'index.html' ,{'posts': posts})
     #return HttpResponse("hello world")
 
-class detailsView(generic.DetailView):
+class DetailsView(generic.DetailView):
     model = Post
-    template_name = 'gag/details.html'
+    context_object_name = 'post'
+    template_name = 'details.html'
