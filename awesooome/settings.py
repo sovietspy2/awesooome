@@ -25,7 +25,9 @@ SECRET_KEY = ')=70cje714q)a2wq7fe@^l4px-!+pth$!jrq549p*aru(*uh1)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'app.awesooo.me',
+]
 
 
 # Application definition
