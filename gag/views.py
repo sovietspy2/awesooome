@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.views import generic
 from django.shortcuts import get_object_or_404, render
 
+
 from .models import Post
 
 def index(request):
