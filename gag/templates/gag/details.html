@@ -1,6 +1,8 @@
 {% extends 'gag/base.html' %}
-{% block content %}
+{% load bootstrap3 %}
 {% load static %}
+{% block content %}
+
 {% if post %}
     <h1>post: {{ post.post_text }}</h1>
     <p>user: {{ post.author }}</p>

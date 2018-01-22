@@ -1,14 +1,16 @@
 {% extends 'gag/base.html' %}
-{% block content %}
+{% load bootstrap3 %}
 {% load static %}
-{% block title %}WHAT THE FUCK{% endblock %}<br>
-<img src="{% static "gag/griv.gif" %}" alt="G G AKA GENERAL GRIVUS"/>
+{% block content %}
 
-{% if posts %}
-    {%  for post in posts %}
-        <li><a href="/posts/{{post.id}}">{{ post.post_text }} </a> likes: {{ post.likes }} <a href="{% url 'gag:like' post.id %}">LIKE</a></li>
-    {% endfor %}
-{% else %}
-    <p> no posts :[</p>
-{% endif %}
+    {% block title %}WHAT THE FUCK{% endblock %}<br>
+    <img src="{% static "gag/griv.gif" %}" alt="G G AKA GENERAL GRIVUS"/>
+
+    {% if posts %}
+        {%  for post in posts %}
+            <li><a href="/posts/{{post.id}}">{{ post.post_text }} </a> likes: {{ post.likes }} <a href="{% url 'gag:like' post.id %}">{% bootstrap_button "LIKE" %}</a></li>
+        {% endfor %}
+    {% else %}
+        <p> no posts :[</p>
+    {% endif %}
 {% endblock %}
