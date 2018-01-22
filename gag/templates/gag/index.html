@@ -22,7 +22,7 @@
                    <a class="text-white" href="/posts/{{ post.id }}">{{ post.post_text }}</a>
                 </div>
                 <div class="panel-body">
-                    <img src="localhost:80/{{ post.image.url }}">
+                    <img src="http://awesooo.me/{{ post.image.url }}">
                 </div>
                 <div class="panel-footer">
                     likes: {{ post.likes }} <a href="{% url 'gag:like' post.id %}">{% bootstrap_button "LIKE" %}</a>

@@ -14,7 +14,6 @@ from .models import Post
 def index(request):
     posts = Post.objects.all()
     return render(request, 'gag/index.html', {'posts': posts})
-    #
 
 
 class DetailsView(generic.DetailView):
@@ -55,3 +54,7 @@ def signup(request):
 def logout_view(request):
     logout(request)
     return HttpResponse("Logged out!")
+
+
+def create(request):
+    return HttpResponse('200')

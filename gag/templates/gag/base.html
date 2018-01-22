@@ -25,6 +25,7 @@
 
                 {% if user.is_authenticated %}
                     <li><a href="#">Profile</a></li>
+                     <li><a href="{% url 'gag:create' %}">Create</a></li>
                     <li><p class="navbar-text">logged in {{ user.username }}! </p></li>
                </ul>
 

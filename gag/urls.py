@@ -16,4 +16,5 @@ urlpatterns = [
     #url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     path('accounts/profile/', views.profile, name='profile'),
     path('signup/', views.signup, name='signup'),
+    path('create/', views.create, name='create'),
 ]
