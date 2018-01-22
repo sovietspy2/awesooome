@@ -12,8 +12,8 @@ urlpatterns = [
     #url(r'like/(?P<int:id>\d+)/$', views.like, name='like')
     path('like/<id>/', views.like, name='like'),
     path('login/', auth_views.login, name='login'),
-    path('logout/', auth_views.logout, name='logout'),
+    path('logout/', views.logout_view, name='logout'),
     #url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     path('accounts/profile/', views.profile, name='profile'),
-    path('register/', views.register, name='register'),
+    path('signup/', views.signup, name='signup'),
 ]
