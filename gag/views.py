@@ -10,14 +10,18 @@ from django.contrib.auth import login, authenticate, logout
 
 from .models import Post
 
+
 def index(request):
     posts = Post.objects.all()
     return render(request, 'gag/index.html', {'posts': posts})
     #
+
+
 class DetailsView(generic.DetailView):
     model = Post
     context_object_name = 'post'
     template_name = 'gag/details.html'
+
 
 def like(request, id):
     post = get_object_or_404(Post, pk=id)
@@ -26,9 +30,11 @@ def like(request, id):
     posts = Post.objects.all()
     return render(request, 'gag/index.html', {'posts': posts})
 
+
 def profile(request):
     user = get_user(request)
     return HttpResponse("HELLO" +user.username)
+
 
 def signup(request):
     if request.method == 'POST':
