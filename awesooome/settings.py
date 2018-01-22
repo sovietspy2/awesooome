@@ -36,7 +36,8 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
-    'gag.apps.GagConfig',
+    'bootstrap3', # bootstrap lib for django
+    'gag.apps.GagConfig', # app
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

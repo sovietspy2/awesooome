@@ -1,14 +1,38 @@
+{% extends 'gag/base.html' %}
+{% load bootstrap3 %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'gag/style.css' %}" />
-<h1>Hello There!</h1>
-<img src="{% static "gag/griv.gif" %}" alt="G G AKA GENERAL GRIVUS"/>
+{% block content %}
+
+    {% if message %}
+        <div id="message">
+            <div style="padding: 5px;">
+                <div id="inner-message" class="alert alert-error">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% block title %}WHAT THE FUCK{% endblock %}<br>
+
+    {% if posts %}
+        {%  for post in posts %}
+            <div class="panel panel-primary">
+                <div class="panel-heading" id="post_panel">
+                   <a class="text-white" href="/posts/{{ post.id }}">{{ post.post_text }}</a>
+                </div>
+                <div class="panel-body">
+                    <img src="/var/www/html/{{ post.image.url }}">
+                </div>
+                <div class="panel-footer">
+                    likes: {{ post.likes }} <a href="{% url 'gag:like' post.id %}">{% bootstrap_button "LIKE" %}</a>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p> no posts :[</p>
+    {% endif %}
 
 
-
-{% if posts %}
-    {%  for post in posts %}
-        <li><a href="/posts/{{post.id}}">{{ post.post_text }} </a> likes: {{ post.likes }} <a href="{% url 'gag:like' post.id %}">LIKE</a></li>
-    {% endfor %}
-{% else %}
-    <p> no posts :[</p>
-{% endif %}
+{% endblock %}

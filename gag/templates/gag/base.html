@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} Hello There{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'gag/style.css' %}" />
+    {% load bootstrap3 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
+</head>
+<body>
+     <header>
+         <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                             <a class="navbar-brand" href="{% url 'gag:index' %}">App.Awesooo.me</a>
+                        </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+
+                {% if user.is_authenticated %}
+                    <li><a href="#">Profile</a></li>
+                    <li><p class="navbar-text">logged in {{ user.username }}! </p></li>
+               </ul>
+
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            {#  <a href="{% url 'gag:logout' %}">{% bootstrap_button "logout" %}</a> #}
+                            <a href="{% url 'gag:logout' %}" class="btn btn-primary">Logout {% bootstrap_icon "log-out" %}</a>
+                        </div>
+                      </form>
+                  {% else %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{% url 'gag:login' %}" >login</a></li>
+                            <li><a href="{% url 'gag:signup' %}" >sign up</a></li>
+                        </ul>
+                  {% endif %}
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+
+     </header>
+
+    <div class="row">
+        <div class = "col-md-2 col-md-offset-5 ">
+              <main>
+                {% block content %}
+                {% endblock %}
+              </main>
+        </div>
+    </div>
+</body>
+
+<footer>
+<div class= "navbar navbar-inverse navbar-static-bottom navbar-fixed-bottom" role="navigation">
+    <div class="navbar-text pull-left">
+    </div>
+    <div class= "navbar-text pull-right">
+<!-- Add in your social media / github links here -->
+        <a href="https://github.com/clarkdatalabs">
+            <i class="fa fa-github-square fa-2x"></i></a>
+    </div>
+    <!--Below is the copyright information for the site. You can fill in your own here.-->
+    <div class="navbar-text pull-left">
+    &copy; Digital Projects Studio, 2015
+    </div>
+</div>
+</footer>
+
+
+</html>

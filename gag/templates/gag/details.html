@@ -1,5 +1,8 @@
+{% extends 'gag/base.html' %}
+{% load bootstrap3 %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'gag/style.css' %}" />
+{% block content %}
+
 {% if post %}
     <h1>post: {{ post.post_text }}</h1>
     <p>user: {{ post.author }}</p>
@@ -9,3 +12,4 @@
     <img src="/var/www/html/{{ post.image.url }}">
 
 {% endif %}
+ {% endblock %}
