@@ -21,16 +21,20 @@
 a.panel-heading {
     color: white;
 }
-panel-heading a{
+.panel-heading a{
     color:white;
+    text-decoration: none !important;
 }
 
 .panel-heading a:link{
-color:white !important;
+    color:white !important;
+    text-decoration: none !important;
 }
 .panel-heading a:visited{
-color:white !important;
+    color:white !important;
+    text-decoration: none !important;
 }
 .panel-heading a:hover{
-color:white !important;
+    color:white !important;
+    text-decoration: none !important;
 }
