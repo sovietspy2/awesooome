@@ -1,6 +1,7 @@
+{% extends 'gag/base.html' %}
+{% block content %}
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'gag/style.css' %}" />
-<h1>Hello There!</h1>
+{% block title %}WHAT THE FUCK{% endblock %}<br>
 <img src="{% static "gag/griv.gif" %}" alt="G G AKA GENERAL GRIVUS"/>
 
 {% if posts %}
@@ -10,3 +11,4 @@
 {% else %}
     <p> no posts :[</p>
 {% endif %}
+{% endblock %}

@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
 from django.shortcuts import get_object_or_404, render
-
+from django.contrib.auth import get_user
 
 from .models import Post
 
@@ -23,3 +23,10 @@ def like(request, id):
     post.save()
     posts = Post.objects.all()
     return render(request, 'gag/index.html', {'posts': posts})
+
+def profile(request):
+    user = get_user(request)
+    return HttpResponse("HELLO" +user.username)
+
+def register(request):
+    return HttpResponse("HELLO")

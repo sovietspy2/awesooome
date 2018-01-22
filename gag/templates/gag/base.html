@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} Hello There{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'gag/style.css' %}" />
+</head>
+<body>
+  <header>
+    <h1>app.awesooo.me</h1>
+    {% if user.is_authenticated %}
+      Hi {{ user.username }}!
+      <a href="{% url 'gag:logout' %}">logout</a>
+    {% else %}
+        <ul>
+            <li><a href="{% url 'gag:login' %}">login</a></li>
+            <li><a href="{% url 'gag:register' %}">register</a></li>
+        </ul>
+    {% endif %}
+  </header>
+  <hr>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  <hr>
+  <footer>
+    <a href="http://asdasdas.com">awesooo.me</a>
+  </footer>
+</body>
+</html>
